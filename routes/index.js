@@ -20,7 +20,38 @@ router.get("/:term", function (req, res, next) {
 
     var local = req.get("host");
     console.log(params)
-  })
-})
+
+    //enter search query into database
+    var query = function (db, callback){
+      var searchObj = {
+        search: params
+      } //searchObj
+
+      collection.insert(searchObj);
+
+      res.json({
+        ///////////////////////////////////////////put output here
+      })
+    }//query
+
+
+
+    query(db, function (){
+      console.log("Search query entered into database");
+      db.close();
+    })
+
+
+
+
+  }) // mongo connect
+
+
+
+
+
+
+
+}) //router.get
 
 module.exports = router;
