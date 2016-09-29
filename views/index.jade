@@ -2,4 +2,14 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  h3 by #{author}
+  h5 Welcome to #{title}
+  p This is an image search microservice.  
+
+  h3 Example Input:
+  code(id="example-input") localhost:3000/mogwai
+
+  
+  h3 Example Output:
+  code(id="example-output" class="example") {}
+  
