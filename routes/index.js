@@ -21,6 +21,64 @@ router.get("/:term", function (req, res, next) {
     var local = req.get("host");
     console.log(params)
 
+
+
+//  Need to get ajax request, add parameters
+//  https://api.datamarket.azure.com/Bing/Search/
+
+/*
+
+var http = require('http');
+var serviceRoot = 'http://services.odata.org/v4/TripPinServiceRW/';
+getURL(serviceRoot + 'People('russellwhyte')');
+function getURL(url) {
+    var body = '';
+    http.get(url, function (response) {
+        response.on('data', function (chunk) {
+            body+=chunk;
+        });
+        response.on('end', function () {
+            console.log(body);
+        });
+    }).on('error', function(e) {
+        console.log('ERROR: ' + e.message);
+    });
+}
+
+
+*/
+
+
+
+
+
+
+
+    var http = require("http");
+    var serviceRoot = "https://api.datamarket.azure.com/Bing/Search/";  //chck this
+    var query = params //something something
+    function getImgs(url) {
+      http.get(url, function(response){
+        response.on("data", function(chunk){
+          //do something with chunkData
+
+        });
+
+        response.on("end", function(){
+          //do somehing at the end, i.e. console.log(body), after adding to it
+
+        });
+
+
+      }).on('error', function(e){
+        console.log("ERROR: " + e.message)
+      }) // https
+
+    } //getImgs
+
+
+
+
     //enter search query into database
     var query = function (db, callback){
       var searchObj = {
