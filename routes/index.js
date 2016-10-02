@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var https = require("https")
+var bl = require('bl')
 
 var mongo = require("mongodb").MongoClient;
 var mLab = "mongodb://localhost:27017/imageSearch"
@@ -11,8 +13,61 @@ router.get('/', function(req, res, next) {
 
 //search for
 router.get("/:term", function (req, res, next) {
+
   var params = req.params.term;
   console.log(params)
+
+  var searching = params;
+  var base = "https://www.googleapis.com/customsearch/v1?key="
+
+  var q = '&q='+ searching +'&searchType=image'
+  var url = base + keyCX + q
+
+  https.get(url, function (response) {
+    response.setEncoding('utf8');
+
+    response.pipe(bl(function(err, data) {
+      var json = JSON.parse(data);
+      var items = json.items
+      for (var i = 0; i < items.length; i++){
+        var title = items[i].title;
+        var url = items[i].link;
+        var snippet = items[i].snippet;
+        var page = items[i].image.contextLink;
+
+        console.log({
+          Title: title,
+          imageUrl: url,
+          altText: snippet,
+          pageUrl: page
+        })
+      }
+    }));
+
+  }).on('error', function (e){
+    console.log("ERROR: " + e.message)
+  })
+
+
+
+/*
+title: items[i].title
+image url : items[i].link,
+alt text : items[i].snippet,
+page urls : items[i].image.contextLink
+
+
+
+url
+snippet
+thumbnail
+context
+
+
+
+
+*/
+
 
 
 /*
