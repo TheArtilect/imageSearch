@@ -18,18 +18,30 @@ router.get('/', function(req, res, next) {
 router.get("/:term", function (req, res, next) {
 
   var params = req.params.term;
+
+  //Ignore annoying favicon request and doesn't get logged into queries
+  if (params === 'favicon.ico'){
+    res.writeHead(200, {'Content-Type': 'image/x-icon'} );
+    res.end();
+    console.log('favicon requested');
+    return;
+  }
+
+
   var time = new Date().toString();
+
 
   var searching = params;
   var base = "https://www.googleapis.com/customsearch/v1?key="
-  var keyCX = 
   var q = '&q='+ searching +'&searchType=image'
-  var url = base + keyCX + q
+  var url = base + process.env.KEYCX + q
 
   https.get(url, function (response) {
     response.setEncoding('utf8');
 
     response.pipe(bl(function(err, data) {
+      if (err) throw err;
+      var results = [];
       var json = JSON.parse(data);
       var items = json.items
       for (var i = 0; i < items.length; i++){
@@ -38,13 +50,16 @@ router.get("/:term", function (req, res, next) {
         var snippet = items[i].snippet;
         var page = items[i].image.contextLink;
 
-        console.log({
+        results.push({
           Title: title,
           imageUrl: url,
-          altText: snippet,
+          snippet: snippet,
           pageUrl: page
         })
-      }
+
+      } // for
+
+      res.send(results)
     }));
 
   }).on('error', function (e){
@@ -71,10 +86,6 @@ router.get("/:term", function (req, res, next) {
 
       collection.insert(searchObj);
 
-      res.json({
-        ///////////////////////////////////////////put output here
-
-      })
     }//query
 
 
