@@ -4,7 +4,7 @@ var https = require("https")
 var bl = require('bl')
 
 var mongo = require("mongodb").MongoClient;
-var mLab = "mongodb://localhost:27017/imageSearch"
+var mLab = process.env.IMAGEDB;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Image Search', author: "Ian Agpawa" });
@@ -47,6 +47,7 @@ router.get("/search/:term", function (req, res, next) {
         res.send(json);
       } else {
         var items = json.items;
+        console.log(json);
         for (var i = 0; i < items.length; i++){
           var title = items[i].title;
           var url = items[i].link;

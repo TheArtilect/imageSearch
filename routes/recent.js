@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongo = require("mongodb").MongoClient;
-var mLab = "mongodb://localhost:27017/imageSearch"
+var mLab = process.env.IMAGEDB;
 
 //get recent search queries
 
