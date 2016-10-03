@@ -18,7 +18,7 @@
 9 verbose stack     at maybeClose (internal/child_process.js:829:16)
 9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 10 verbose pkgid imageSearch@0.0.1
-11 verbose cwd /home/legion/railing/imageSearch
+11 verbose cwd /home/onyx/projects/imageSearch
 12 error Linux 4.4.0-38-generic
 13 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
 14 error node v4.6.0

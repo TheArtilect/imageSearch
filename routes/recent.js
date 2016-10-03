@@ -5,21 +5,24 @@ var mongo = require("mongodb").MongoClient;
 var mLab = "mongodb://localhost:27017/imageSearch"
 
 //get recent search queries
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
-  mongo.connect(mLab, function (err, db){
+
+  mongo.connect(mLab, callback);
+
+  function callback(err, db){
     if (err) throw err;
-    console.log("connected, retrieving recent queries")
 
-    var collection = db.collection("queries")
+    var collection = db.collection("queries");
 
-    var retrieve = function (db, callback){
-      ///////////get most recent queries
-    }
-  })
+    collection.find({}, {search: 1, timeStamp: 1, _id: 0}).sort({_id:-1}).limit(10).toArray(function (err, doc){
+      res.setHeader("Content-Type", "application/json");
+      res.send(doc)
+    }) //collection
 
+    db.close()
+  } //callback
 
-  //res.send('respond with a resource');
-});
+}); // router
 
 module.exports = router;
