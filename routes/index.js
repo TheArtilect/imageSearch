@@ -16,24 +16,30 @@ router.get('/', function(req, res, next) {
 
 router.get("/search/:term", function (req, res, next) {
 
-  var params = req.params.term;
+  var term = req.params.term;
+
+  //get starting index
+  function ind(n){
+    return ((n - 1) * 10) + 1
+  }
+
+  var page = ind(req.query.offset);
+
 
   //Ignore annoying favicon request and doesn't get logged into queries
-  if (params === 'favicon.ico'){
+  if (term === 'favicon.ico'){
     res.writeHead(200, {'Content-Type': 'image/x-icon'} );
     res.end();
     console.log('favicon requested');
     return;
   }
 
-
   var time = new Date().toString();
 
-
-  var searching = params;
   var base = "https://www.googleapis.com/customsearch/v1?key="
-  var q = '&q='+ searching +'&searchType=image'
-  var url = base + process.env.KEYCX + q
+  var start = (page || 1);
+  var q = '&q='+ term +'&searchType=image&start=' + start;
+  var url = base + process.env.KEYCX + q;
 
 
   https.get(url, function (response) {
@@ -44,10 +50,10 @@ router.get("/search/:term", function (req, res, next) {
       var results = [];
       var json = JSON.parse(data);
       if (json.error){
-        res.send(json);
+        res.send(json.error)
+        //res.send(json.error.errors.reason + " : " + json.error.errors.message);
       } else {
         var items = json.items;
-        console.log(json);
         for (var i = 0; i < items.length; i++){
           var title = items[i].title;
           var url = items[i].link;
@@ -81,22 +87,20 @@ router.get("/search/:term", function (req, res, next) {
     console.log("connected, mongo")
 
     var collection = db.collection("queries");
-    var local = req.get("host");
 
     //enter search query into database
     var query = function (db, callback){
       var searchObj = {
-        search: params,
+        search: term,
         timeStamp: time
       } //searchObj
       collection.insert(searchObj);
     }//query
 
     query(db, function (){
-      console.log("Search query entered into database");
       db.close();
     })
-
+    console.log("Search query entered into database");
   }) // mongo connect
 
 }) //router.get
