@@ -7,16 +7,16 @@ block content
   p This is an image search microservice using the Google Custom Search API.  Pass a search term as a parameter and you will receive an array of JSON objects listing the title, image URL, snippet, and page URL of relevant result items.  You can pass "?offset=INTEGER" to paginate through the results.  You can also point your browser to the following address below to view the most recent searches.
   
   h3 Most Recent Searches:
-  code(id="example-input" class="example") localhost:3000/recent
+  code(id="example-input" class="example") https://imgsearch-ia.herokuapp.com/recent
   
   h3 Most Recent Search Output:
   code(id="example-input" class="example") [{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:40:09 GMT-0400 (EDT)"},{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:40:05 GMT-0400 (EDT)"},{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:39:53 GMT-0400 (EDT)"},{"search": "tigers","timeStamp": "Mon Oct 03 2016 17:34:41 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:34:03 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:33:54 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:32:30 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:32:23 GMT-0400 (EDT)"},{"search": "japan", "timeStamp": "Mon Oct 03 2016 17:32:10 GMT-0400 (EDT)"}, {"search": "japan","timeStamp": "Mon Oct 03 2016 17:31:18 GMT-0400 (EDT)"}]
 
   h3 Search Example Input:
-  code(id="example-input" class="example") localhost:3000/search/mogwai
+  code(id="example-input" class="example") https://imgsearch-ia.herokuapp.com/search/mogwai
   
   h3 Search Example with Pagination Input:
-  code(id="example-input" class="example") localhost:3000/search/mogwai?offset=3
+  code(id="example-input" class="example") https://imgsearch-ia.herokuapp.com/mogwai?offset=3
 
   
   h3 Search Example Output:
