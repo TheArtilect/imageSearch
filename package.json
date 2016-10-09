@@ -21,7 +21,7 @@
     "npm": "^3.10.7",
     "serve-favicon": "~2.3.0"
   },
-  "description": "timestamp microservice",
+  "description": "image search microservice",
   "main": "app.js",
   "author": "ian agpawa",
   "license": "ISC"
