@@ -6,14 +6,6 @@ block content
   h5 Welcome to #{title}
   p This is an image search microservice using the Google Custom Search API.  Pass a search term as a parameter and you will receive an array of JSON objects listing the title, image URL, snippet, and page URL of relevant result items.  You can pass "?offset=INTEGER" to paginate through the results.  You can also point your browser to the following address below to view the most recent searches.
   
-  h3 Most Recent Searches:
-  code(id="example-input" class="example") https://imgsearch-ia.herokuapp.com/recent
-  br
-  
-  h3 Most Recent Search Output:
-  code(id="example-input" class="example") [{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:40:09 GMT-0400 (EDT)"},{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:40:05 GMT-0400 (EDT)"},{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:39:53 GMT-0400 (EDT)"},{"search": "tigers","timeStamp": "Mon Oct 03 2016 17:34:41 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:34:03 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:33:54 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:32:30 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:32:23 GMT-0400 (EDT)"},{"search": "japan", "timeStamp": "Mon Oct 03 2016 17:32:10 GMT-0400 (EDT)"}, {"search": "japan","timeStamp": "Mon Oct 03 2016 17:31:18 GMT-0400 (EDT)"}]
-  br
-  br
   
   h3 Search Example Input:
   code(id="example-input" class="example") https://imgsearch-ia.herokuapp.com/search/mogwai
@@ -22,8 +14,17 @@ block content
   h3 Search Example with Pagination Input:
   code(id="example-input" class="example") https://imgsearch-ia.herokuapp.com/mogwai?offset=3
   br
-  br
+  
 
   h3 Search Example Output:
   code(id="example-output" class="example") [{"Title":"Mogwai | Gremlins Wiki | Fandom powered by Wikia","imageUrl":"http://vignette4.wikia.nocookie.net/gremlins/images/8/84/Gizmo_Mogwai.jpg/revision/latest?cb=20111106142649","snippet":"Gizmo Mogwai","pageUrl":"http://gremlins.wikia.com/wiki/Mogwai"},{"Title":"Mogwai on Sub Pop Records","imageUrl":"https://subpop-img.s3.amazonaws.com/asset/artist_images/attachments/000/004/436/max_960/13904.jpg?1389022108","snippet":"13949 · 13948 · 13904","pageUrl":"https://www.subpop.com/artists/mogwai"},{"Title":"Mogwai : Atomic : Out April 1st","imageUrl":"https://d3ens9jquqd54d.cloudfront.net/thumbnails/0a2d4420-2d46-0133-17a3-064035ba64dc-large","snippet":"Mogwai Black and White Skull ...","pageUrl":"http://www.mogwai.co.uk/"},{"Title":"Mogwai on Sub Pop Records","imageUrl":"https://subpop-img.s3.amazonaws.com/asset/artist_images/attachments/000/004/437/max_960/13948.jpg?1389022125","snippet":"13949 · 13948 · 13904","pageUrl":"https://www.subpop.com/artists/mogwai"},{"Title":"Mogwai - Wikipedia, the free encyclopedia","imageUrl":"https://upload.wikimedia.org/wikipedia/en/f/f9/Mogwai_live_RFH_2014.jpg","snippet":"Mogwai live RFH 2014.jpg","pageUrl":"https://en.wikipedia.org/wiki/Mogwai"},{"Title":"Why Keeping a Husky is like having a Mogwai/Gremlin The Dog Tails ...","imageUrl":"http://meganhine.com/meg/wp-content/uploads/2015/11/Mogwai.jpg","snippet":"Mogwai","pageUrl":"http://meganhine.com/meg/why-keeping-a-husky-is-like-having-a-mogwaigremlin-the-dog-tails-series/"},{"Title":"Gizmo Mogwai Peltzer (@Gizmo1Mogwai) | Twitter","imageUrl":"https://pbs.twimg.com/profile_images/1266422043/gizmo-mogwai.jpg","snippet":"Keyboard Shortcuts","pageUrl":"https://twitter.com/gizmo1mogwai"},{"Title":"Mogwai's Stuart Braithwaite On Slint's 'Spiderland' | Features ...","imageUrl":"https://subpop-img.s3.amazonaws.com/asset/artist_images/attachments/000/004/436/original/13904.jpg?1389022108","snippet":"An error occurred.","pageUrl":"http://www.clashmusic.com/features/mogwais-stuart-braithwaite-on-slints-spiderland"},{"Title":"Mogwai Archives - FACT Magazine: Music News, New Music.","imageUrl":"http://factmag-images.s3.amazonaws.com/wp-content/uploads/2014/10/mogwai030614.jpg","snippet":"Mogwai announce new EP – with ...","pageUrl":"http://www.factmag.com/tag/mogwai/"},{"Title":"Just Add Water! A Closer Look at Mogwai and Gremlins | Prop Store ...","imageUrl":"http://content.propstore.com/wp-content/uploads/2015/04/Lenny-Mogwai-2of2.jpg","snippet":"... Puppet Lenny Mogwai 2of2","pageUrl":"http://www.propstore.com/blog/just-add-water-a-closer-look-at-mogwai-and-gremlins/"}]
+  br
+  br
+
   
+  h3 Most Recent Searches:
+  code(id="example-input" class="example") https://imgsearch-ia.herokuapp.com/recent
+  br
+  
+  h3 Most Recent Search Output:
+  code(id="example-input" class="example") [{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:40:09 GMT-0400 (EDT)"},{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:40:05 GMT-0400 (EDT)"},{"search": "rabbits","timeStamp": "Mon Oct 03 2016 17:39:53 GMT-0400 (EDT)"},{"search": "tigers","timeStamp": "Mon Oct 03 2016 17:34:41 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:34:03 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:33:54 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:32:30 GMT-0400 (EDT)"},{"search": "mogwai","timeStamp": "Mon Oct 03 2016 17:32:23 GMT-0400 (EDT)"},{"search": "japan", "timeStamp": "Mon Oct 03 2016 17:32:10 GMT-0400 (EDT)"}, {"search": "japan","timeStamp": "Mon Oct 03 2016 17:31:18 GMT-0400 (EDT)"}]
