@@ -30,22 +30,24 @@ Within the project folder, you will find the following files:
 imageSearch/
     ├── bin/
     |     └── www
+    |
     ├── public/
-    |       ├── stylesheets/
-    |       |       └─── style.css
-    |       |
-    |       ├── routes/
-    |       |    ├── index.js
-    |       |    └── recent.js
-    |       |
-    |       └─── views/
-    |               ├── error.jade
-    |               ├── index.jade
-    |               └── layout.jade
+    |       └── stylesheets/
+    |              └─── style.css
+    ├── routes/
+    |       ├── index.js
+    |       └── recent.js
+    |
+    └─── views/
+    |       ├── error.jade
+    |       ├── index.jade
+    |       └── layout.jade
+    |
     ├── .gitignore
     ├── Procfile
     ├── app.js
-    └── package.json
+    ├── package.json
+    └── README.md
 ```
 
 ## Creator
