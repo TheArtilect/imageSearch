@@ -1,7 +1,5 @@
 # ImageSearch
 
-### By Ian Agpawa
-
 #### This repo is for an API project from freeCodeCamp's Back End Development Certification.
 Users can pass search terms as parameters and will receive a JSON output of the search results, which can be paginated through by passing additional parameters.  The most recent search terms can also be returned as JSON output.  The microservice utilizes the Google Custom Search API.    
 
