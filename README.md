@@ -2,11 +2,9 @@
 
 ### By Ian Agpawa
 
-#### This repo is for an API project from freeCodeCamp's Back End Certifcation.
+#### This repo is for an API project from freeCodeCamp's Back End Development Certifcation.
+With this app, users can pass search terms as parameters and receive JSON output of the search results, which can be paginated through by passing additional parameters.  The most recent search terms can also be return as JSON output.  The microservice utilizes the Google Custom Search API.    
 
-
-### Viewing the deployed app
-[Click here](https://imgsearch-ia.herokuapp.com/)
 
 ### Quick Start
 Clone the repo:
